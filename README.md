@@ -83,9 +83,10 @@ Distributed under the GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007. See `L
 
 Project Link: [https://github.com/hiddb/app](https://github.com/hiddb/app)
 
-## Acknowledgments
+## Contributers
 
-- [Rust](https://www.rust-lang.org/)
+- [Benjamin Bolbrinker](https://github.com/benjaminbolbrinker)
+- [Marc Erdmann](https://github.com/MarcErdmann)
 
 ---
 
