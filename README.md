@@ -11,7 +11,6 @@ Welcome to the HIDDB App repository. This project is an persistant implementatio
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -20,6 +19,7 @@ Welcome to the HIDDB App repository. This project is an persistant implementatio
 ## About The Project
 
 This project extents the algorithm proposed by Malkov et. al. with persistence. [Rocksdb](https://rocksdb.org/) is used as key-value store.
+The application is accessable via a RESTful API.
 
 ### Built With
 
@@ -53,6 +53,8 @@ Here are some examples of how to use the project:
    ```sh
    cargo run
    ```
+The application is now accessible via http://localhost:8080
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -69,9 +71,9 @@ Distributed under the GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007. See `L
 
 ## Contact
 
-Project Link: [https://github.com/hiddb/app](https://github.com/hiddb/app)
+Project Link: [https://github.com/hiddb/app](https://github.com/hiddb/hiddb)
 
-## Contributers
+## Acknowledgments
 
 - [Benjamin Bolbrinker](https://github.com/benjaminbolbrinker)
 - [Marc Erdmann](https://github.com/MarcErdmann)
