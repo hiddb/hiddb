@@ -55,6 +55,8 @@ Here are some examples of how to use the project:
    ```
 The application is now accessible via http://localhost:8080
 
+You can interact with the application using the official [Python client](https://pypi.org/project/hiddb/), [Java Script client](https://www.npmjs.com/package/hiddb) or direct HTTP requests, e.g. using [curl](https://curl.se/).
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
