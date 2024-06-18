@@ -19,7 +19,7 @@ Welcome to the HIDDB App repository. This project is an persistant implementatio
 
 ## About The Project
 
-The HIDDB App aims to [detailed project description].
+This project extents the algorithm proposed by Malkov et. al. with persistence. [Rocksdb](https://rocksdb.org/) is used as key-value store.
 
 ### Built With
 
@@ -87,7 +87,3 @@ Project Link: [https://github.com/hiddb/app](https://github.com/hiddb/app)
 
 - [Benjamin Bolbrinker](https://github.com/benjaminbolbrinker)
 - [Marc Erdmann](https://github.com/MarcErdmann)
-
----
-
-This should provide a solid foundation for your README. You can customize it further based on the specific details and requirements of your project.
