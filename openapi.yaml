@@ -1,0 +1,412 @@
+openapi: 3.0.1
+info:
+  title: HIDDB API Description
+  description:
+    This is a sample server Petstore server.  You can find out more about     Swagger
+    at [http://hiddb.com](http://hiddb.com). For this sample, you can use the api
+    key `SAMPLEAPIKEY`.
+  termsOfService: http://hiddb.com/terms
+  contact:
+    name: us
+    email: benjamin.bolbrinker@hiddb.com
+  license:
+    name: INSERT LICENCE HERE!!
+    url: http://hiddb.com/licence
+  version: 0.0.1
+externalDocs:
+  description: Visit us on hiddb.com
+  url: http://hiddb.com
+servers:
+  - url: https://159.69.92.223:8080
+  - url: http://159.69.92.223:8080
+paths:
+  /health:
+    get:
+      summary: Test connection
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        200:
+          description: Connection successful
+          content: {}
+      security:
+        - api_key: []
+  /collection:
+    get:
+      summary: Get information about collections
+      description: Get information about collections
+      responses:
+        200:
+          description: Connection successful
+          content: {}
+      security:
+        - api_key: []
+    post:
+      summary: Create new collection
+      description: Create new collection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Collection"
+        required: true
+      responses:
+        200:
+          description: Successful HTTP request
+          content: {}
+        400:
+          description: Invalid parameters
+          content: {}
+      security:
+        - api_key: []
+      x-codegen-request-body-name: document
+  /collection/{collection_id}:
+    get:
+      summary: Get information about collection
+      description: Get information about collection
+      parameters:
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Connection successful
+          content: {}
+      security:
+        - api_key: []
+    delete:
+      summary: Delete collection
+      description: Delete collection
+      parameters:
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Connection successful
+          content: {}
+      security:
+        - api_key: []
+  /collection/{collection_id}/index:
+    get:
+      summary: Get information about existing indices
+      description: Get information about existing indices
+      parameters:
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful HTTP request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IndexInfo"
+      security:
+        - api_key: []
+    post:
+      summary: Create new index in {collection_id}
+      description: Create new index in {collection_id}
+      parameters:
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IndexCreate"
+        required: true
+      responses:
+        200:
+          description: Successful HTTP request
+          content: {}
+        400:
+          description: Invalid parameters
+          content: {}
+      security:
+        - api_key: []
+      x-codegen-request-body-name: document
+  /collection/{collection_id}/index/{index_id}:
+    get:
+      summary: Get information about specific index
+      description: Get information about specific index
+      parameters:
+        - name: index_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful HTTP request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IndexInfo"
+        400:
+          description: Invalid parameters
+          content: {}
+      security:
+        - api_key: []
+    delete:
+      summary: Delete index
+      description: Delete index
+      parameters:
+        - name: index_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful HTTP request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IndexInfo"
+        400:
+          description: Invalid parameters
+          content: {}
+      security:
+        - api_key: []
+  /collection/{collection_id}/document/insert:
+    post:
+      summary:
+        Insert document. The field "field_id" will be indexed by all existing
+        indices
+      description:
+        Insert document. The field "field_id" will be indexed by all existing
+        indices
+      parameters:
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Document"
+        required: true
+      responses:
+        200:
+          description: Insertion successful
+          content: {}
+      security:
+        - api_key: []
+      x-codegen-request-body-name: document
+  /collection/{collection_id}/document/query/{field_id}:
+    post:
+      summary: Search for document. Supply at least "field" and "document_id"
+      description: Search for document. Supply at least "field" and "document_id"
+      parameters:
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: field_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "#/components/schemas/QueryByVectorParameters"
+                - $ref: "#/components/schemas/QueryByIdParameters"
+        required: true
+      responses:
+        200:
+          description:
+            A JSON array with length k containing the closest IDs to the
+            query vector
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+                  format: int64
+      security:
+        - api_key: []
+      x-codegen-request-body-name: document
+  /collection/{collection_id}/document/{document_id}:
+    get:
+      summary: Get document by ID
+      description: Get document by ID
+      parameters:
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: document_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Deletion was successful
+          content: {}
+      security:
+        - api_key: []
+    delete:
+      summary: Remove document. Indices will be updated
+      description: Remove document. Indices will be updated
+      parameters:
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: document_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Deletion was successful
+          content: {}
+components:
+  schemas:
+    Collection:
+      type: object
+      properties:
+        collection_id:
+          type: string
+    IndexCreate:
+      type: object
+      properties:
+        field_id:
+          type: string
+        k:
+          type: integer
+          format: int64
+        dimension:
+          type: integer
+          format: int64
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+        field1:
+          type: array
+          items:
+            type: number
+            format: float64
+        field2:
+          type: array
+          items:
+            type: number
+            format: float64
+        fieldN:
+          type: array
+          items:
+            type: number
+            format: float64
+        "...":
+          type: object
+          properties: {}
+    Vector:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        vector:
+          type: array
+          items:
+            type: number
+            format: float64
+    IndexInfo:
+      type: object
+      properties:
+        collection_id:
+          type: string
+        field_id:
+          type: string
+        size:
+          type: integer
+          format: int64
+        distance_metric:
+          type: string
+        buffer_size:
+          type: integer
+          format: int64
+        dimension:
+          type: integer
+          format: int64
+        k:
+          type: integer
+          format: int64
+        entry_point:
+          type: integer
+          format: int64
+        reverse_size:
+          type: number
+          format: float64
+        n_layers:
+          type: integer
+          format: int64
+
+    QueryByVectorParameters:
+      type: object
+      properties:
+        max_neighbors:
+          type: integer
+          format: int64
+        vector:
+          type: array
+          items:
+            type: number
+            format: float64
+
+    QueryByIdParameters:
+      type: object
+      properties:
+        max_neighbors:
+          type: integer
+          format: int64
+        id:
+          type: string
+
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header

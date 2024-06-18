@@ -1,0 +1,5 @@
+/target
+hid_database/*
+*.rdb
+.git
+.gitignore

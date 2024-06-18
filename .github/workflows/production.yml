@@ -1,0 +1,32 @@
+name: Upload HIDDB to S3 in production environment
+on:
+  push:
+    branches:
+      - main
+
+env:
+  S3_ACCESS_KEY: "${{ secrets.PRODUCTION_S3_ACCESS_KEY }}"
+  S3_SECRET_KEY: "${{ secrets.PRODUCTION_S3_SECRET_KEY }}"
+  S3_ENDPOINT: executablesprod.s3.fr-par.scw.cloud
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "APP_VERSION=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
+
+      - run: sudo apt update
+      - run: sudo apt install s3cmd docker.io containerd runc
+
+      - run: |
+          echo "[default]" > $HOME/.s3cfg
+          echo "access_key = ${S3_ACCESS_KEY}" >> $HOME/.s3cfg
+          echo "bucket_location = FR" >> $HOME/.s3cfg
+          echo "default_mime_type = binary/octet-stream" >> $HOME/.s3cfg
+          echo "host_base = ${S3_ENDPOINT}" >> $HOME/.s3cfg
+          echo "host_bucket = %(bucket).${S3_ENDPOINT}" >> $HOME/.s3cfg
+          echo "secret_key = ${S3_SECRET_KEY}" >> $HOME/.s3cfg
+
+      - run: ./build.sh
+      - run: s3cmd put ./target/x86_64-unknown-linux-gnu/release/hiddb s3://hiddb/hiddb-${APP_VERSION}

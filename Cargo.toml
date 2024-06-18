@@ -1,0 +1,50 @@
+[package]
+name = "hiddb"
+version = "0.1.0"
+edition = "2018"
+description = ""
+license = "No distribution, modification or usage of others."
+readme = "README.md"
+authors = ["Benjamin Bolbrinker"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "hiddb"
+crate-type = ["lib"]
+
+[dev-dependencies]
+criterion = "0.3"
+actix-rt = "2.3.0"
+
+[[bench]]
+name = "all"
+harness = false
+
+[dependencies]
+actix = "0.12.0"
+actix-web = "3.3.2"
+actix-cors = "0.5.4"
+actix-http = "2.2.1"
+serde = "1.0.130"
+env_logger = "0.9.0"
+serde_json = "1.0.68"
+derive_more = "0.99.16"
+
+rocksdb = "0.17.0"
+# moka = "0.6"
+seahash = "4.1.0"
+
+num-traits = "0.2.0"
+float-cmp = "0.9.0"
+rand = "0.8.4"
+
+bincode = "1.3.3"
+num_cpus = "0.2"
+
+prometheus = "0.13.0"
+lazy_static = "1.4.0"
+futures = "0.3.18"
+pin-project = "1.0.8"
+
+regex = "1.5.4"

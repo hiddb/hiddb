@@ -1,0 +1,4 @@
+/target
+hid_database/*
+*.rdb
+HIDDBrocksdb/
