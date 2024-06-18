@@ -53,18 +53,6 @@ Here are some examples of how to use the project:
    ```sh
    cargo run
    ```
-
-For more examples, please refer to the [Documentation](https://github.com/hiddb/app).
-
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Sub-feature
-
-See the [open issues](https://github.com/hiddb/app/issues) for a full list of proposed features (and known issues).
-
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
