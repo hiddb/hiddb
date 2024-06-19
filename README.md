@@ -1,7 +1,11 @@
 
-# HIDDB App
+# High-Dimensional Database / HIDDB
 
-Welcome to the HIDDB App repository. This project is an persistant implementation of approximate nearest neighbor search using Hierarchical Navigable Small World graphs by Malkov et. al. (https://arxiv.org/abs/1603.09320).
+This project is an persistent implementation of approximate nearest neighbor search using Hierarchical Navigable Small World graphs by Malkov et. al. (https://arxiv.org/abs/1603.09320).
+
+## Documentation
+
+Please refer to the [documentation](https://docs.hiddb.bebo.tech/).
 
 ## Table of Contents
 
