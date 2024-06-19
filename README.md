@@ -71,7 +71,7 @@ Distributed under the GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007. See `L
 
 ## Contact
 
-Project Link: [https://github.com/hiddb/app](https://github.com/hiddb/hiddb)
+Project Link: [https://hiddb.bebo.tech/](https://hiddb.bebo.tech/)
 
 ## Acknowledgments
 
