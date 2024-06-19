@@ -1,8 +1,12 @@
 
 # High-Dimensional Database / HIDDB
 
-This application is a Vector database optimized for similarity search for high-dimensional vectors. 
-We offer an persistent implementation of approximate nearest neighbor search using Hierarchical Navigable Small World graphs by Malkov et. al. (https://arxiv.org/abs/1603.09320).
+This application is a Vector database optimized for similarity search for high-dimensional vectors which offers:
+
+- Non-relational key-value store based on [Rocksdb](https://rocksdb.org/)
+- Access vie RESTful API, [Python client](https://pypi.org/project/hiddb/) and [Java Script client](https://www.npmjs.com/package/hiddb)
+- Efficiency ⚡ Entirely built with [Rust](https://www.rust-lang.org/)
+- Persistent implementation of approximate nearest neighbor search using Hierarchical Navigable Small World graphs by [Malkov et. al.](https://arxiv.org/abs/1603.09320)
 
 ## Documentation
 
@@ -10,8 +14,6 @@ Please refer to the [documentation](https://docs.hiddb.bebo.tech/).
 
 ## Table of Contents
 
-- [About The Project](#about-the-project)
-- [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -20,15 +22,6 @@ Please refer to the [documentation](https://docs.hiddb.bebo.tech/).
 - [License](#license)
 - [Contact](#contact)
 - [Acknowledgments](#acknowledgments)
-
-## About The Project
-
-This project extents the algorithm proposed by Malkov et. al. with persistence. [Rocksdb](https://rocksdb.org/) is used as key-value store.
-The application is accessable via a RESTful API.
-
-### Built With
-
-- [Rust](https://www.rust-lang.org/)
 
 ## Getting Started
 
