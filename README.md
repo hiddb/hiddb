@@ -1,7 +1,8 @@
 
 # High-Dimensional Database / HIDDB
 
-This project is an persistent implementation of approximate nearest neighbor search using Hierarchical Navigable Small World graphs by Malkov et. al. (https://arxiv.org/abs/1603.09320).
+This application is a Vector database optimized for similarity search for high-dimensional vectors. 
+We offer an persistent implementation of approximate nearest neighbor search using Hierarchical Navigable Small World graphs by Malkov et. al. (https://arxiv.org/abs/1603.09320).
 
 ## Documentation
 
